@@ -1,0 +1,10 @@
+<form class="form" (keydown.enter)="$event.preventDefault();addTodo()">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label>New Task</mat-label>
+      <input type="text" matInput [formControl]="newTaskControl" placeholder="New Task">
+      <mat-error *ngIf="newTaskControl.touched && newTaskControl.hasError('required')">
+        Task is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="button" (click)="addTodo()">Add</button>
+</form>

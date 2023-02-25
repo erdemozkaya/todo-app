@@ -1,0 +1,15 @@
+<mat-card class="card" *ngFor="let todo of (todos$ | async).todos">
+    <mat-card-content class="card-content">
+        <div>
+            <mat-checkbox color="primary" [checked]="todo.isDone" (click)="onCheckboxHandle(todo, $event)"></mat-checkbox>
+        </div>
+        <div class="item-title" [class.line-through]="todo.isDone">
+            <span>{{todo.title}}</span>
+        </div>
+        <div>
+            <button mat-mini-fab color="warn" (click)="onDelete(todo)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
